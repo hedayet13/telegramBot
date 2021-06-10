@@ -16,8 +16,13 @@ def hello(message):
 
 @bot.message_handler(func=lambda message:True)
 def echo_all(message):
-    z = wiki.summary(message)
-    bot.reply_to(message,z.text)
+    msg=message.text
+    z = wiki.summary(msg)
+    z = z.split('.')
+    z = z[:5]
+    z = ".".join(z)
+    bot.send_message(message.chat.id,z)
+    # bot.reply_to(message,z)
 
 
 # @bot.callback_query_handler(func=lambda call:True)

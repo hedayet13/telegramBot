@@ -19,6 +19,7 @@ def hello(message):
 def echo_all(message):
     page_py= wikiapi.page(message.text)
     if page_py.exists()==True:
+        # url = page_py.fullurl
         msg = page_py.summary
         z=msg.split('.')
         z=z[:5]
@@ -30,6 +31,7 @@ def echo_all(message):
         #     z = z[:5]
         #     z = ".".join(z)
         bot.send_message(message.chat.id,z)
+        bot.send_message(message.chat.id,page_py.fullurl)
         #Todo Add Url for read more
     else:
         bot.send_message(message.chat.id,"Page Doesn't exit")

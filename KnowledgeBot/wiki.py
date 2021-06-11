@@ -4,6 +4,7 @@ import wikipediaapi
 print(wiki.search('Bangla'))
 wikiapi = wikipediaapi.Wikipedia('en')
 page_py = wikiapi.page('Bangla')
+print(page_py.fullurl)
 print("Page - Exists: %s" % page_py.exists())
 print("Page - Summary: %s" % page_py.summary)
 # print(type(z))
